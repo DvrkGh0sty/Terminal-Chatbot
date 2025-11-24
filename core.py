@@ -11,3 +11,12 @@ class Calculations():
         except ZeroDivisionError:
             print('Error cannot divide by zero')
             return None
+
+response = {
+    'Hello': 'Hi There',
+    'Exit': 'Goodbye'
+}
+
+def teach(keyword, response):
+    taught = responses[keyword] = reply
+    return teach
