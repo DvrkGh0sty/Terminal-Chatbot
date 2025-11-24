@@ -1,9 +1,7 @@
 from core import Calculations
-import core
+from core import teach
 calc = Calculations()
 
-print(calc.multiply(10, 2))
+print(teach('Ethan', 'John'))
 
-print(calc.add(10, 4))
-teach('Bo', 'kaboom')
 

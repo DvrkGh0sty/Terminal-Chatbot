@@ -17,6 +17,9 @@ response = {
     'Exit': 'Goodbye'
 }
 
-def teach(keyword, response):
-    taught = responses[keyword] = reply
-    return teach
+def teach(keyword, reply):
+    response[keyword] = reply
+    with open('data.txt', 'a') as log:
+        log.write(f'\n{keyword}: {reply}')
+    return reply
+
