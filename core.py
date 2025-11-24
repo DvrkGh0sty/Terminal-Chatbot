@@ -19,9 +19,17 @@ response = {
 
 def teach(keyword, reply):
     response[keyword] = reply
-    with open('data.txt', 'a') as log:
+    with open('test.txt', 'a') as log:
         log.write(f'\n{keyword}: {reply}')
     return reply
 
-
+def get_response(prompt):
+    responses = {
+    'hi': 'Hello There, I am X-bot, your terminal chatbot, designed to help you in your journy (in Beta rn)',
+    'bye': 'Thank you, goodbye'
+    }
+    if prompt in responses:
+        return response[prompt]
+    else:
+        print('Sorry, as we are still in beta I cannot answer your question')
 
