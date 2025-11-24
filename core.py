@@ -23,3 +23,5 @@ def teach(keyword, reply):
         log.write(f'\n{keyword}: {reply}')
     return reply
 
+
+
