@@ -29,7 +29,7 @@ def get_response(prompt):
     'bye': 'Thank you, goodbye'
     }
     if prompt in responses:
-        return response[prompt]
+        return responses[prompt]
     else:
         print('Sorry, as we are still in beta I cannot answer your question')
 
