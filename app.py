@@ -1,7 +1,6 @@
 from core import Calculations
 from core import teach
 from core import get_response
-from core import load_data
 calc = Calculations()
 def main():
     print('Welcome to the terminal chatbot.')
@@ -13,9 +12,10 @@ def main():
         if user_input.lower() in ['/program', '/programs']:
             print('1. Calculate (Basic features)')
             print('2. Teach & Learn')
+            print('3. Load Data')
 
             try:
-                option = int(input('Choose 1-2: '))
+                option = int(input('Choose 1-3: '))
             except ValueError:
                 print('Please enter a number (1 or 2).')
                 continue
@@ -61,11 +61,21 @@ def main():
                     print(f'Data has been saved. Expected response: {saved_data}')
                 else:
                     print('Keyword and response cannot be empty.')
-                    continue
-                    decision = input('would you like to see your current data(y/n): ')
-                    if decision.lower() == 'y':
-                        print(f'{loaded_data}')
-            
+
+                        
+            elif option == 3:
+                try:
+                    with open("test.txt", "r") as fs:
+                        lines = fs.readlines()
+
+                    if not lines:
+                        print("No saved data found.")
+                    else:
+                        for i, line in enumerate(lines, start=1):
+                        print(f"{i}. {line.strip()}")
+
+                except FileNotFoundError:
+                    print("No saved data file found yet.")
         elif user_input in ['/exit', '/quit']:
             print('Thank you for chat.')
             break
@@ -75,3 +85,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
