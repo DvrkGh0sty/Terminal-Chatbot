@@ -32,4 +32,8 @@ def get_response(prompt):
     else:
         print('Sorry, as we are still in beta I cannot answer your question')
 
-def load_data()
+def load_data(saved_data):
+    with open('test.txt', 'r') as sd:
+        for sentence in sd:
+            print(f'Here is your loaded data: {sentence} ')
+        return sentence

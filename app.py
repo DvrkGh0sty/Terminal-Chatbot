@@ -1,6 +1,7 @@
 from core import Calculations
 from core import teach
 from core import get_response
+from core import load_data
 calc = Calculations()
 def main():
     print('Welcome to the terminal chatbot.')
@@ -61,7 +62,10 @@ def main():
                 else:
                     print('Keyword and response cannot be empty.')
                     continue
-
+                    decision = input('would you like to see your current data(y/n): ')
+                    if decision.lower() == 'y':
+                        print(f'{loaded_data}')
+            
         elif user_input in ['/exit', '/quit']:
             print('Thank you for chat.')
             break
