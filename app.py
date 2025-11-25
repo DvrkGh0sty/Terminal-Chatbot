@@ -5,7 +5,7 @@ calc = Calculations()
 def main():
     print('Welcome to the terminal chatbot.')
     print('Use /programs to access extra programs.')
-
+    print('/exit to exit the program')
     while True:
         user_input = input('> ').strip()
 
@@ -61,6 +61,10 @@ def main():
                 else:
                     print('Keyword and response cannot be empty.')
                     continue
+
+        elif user_input in ['/exit', '/quit']:
+            print('Thank you for chat.')
+            break
         else:
             pass
             #placeholder for actual chat

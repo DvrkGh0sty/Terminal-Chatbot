@@ -12,13 +12,12 @@ class Calculations():
             print('Error cannot divide by zero')
             return None
 
-response = {
-    'Hello': 'Hi There',
-    'Exit': 'Goodbye'
+data = {
+    
 }
 
 def teach(keyword, reply):
-    response[keyword] = reply
+    data[keyword] = reply
     with open('test.txt', 'a') as log:
         log.write(f'\n{keyword}: {reply}')
     return reply
@@ -33,3 +32,4 @@ def get_response(prompt):
     else:
         print('Sorry, as we are still in beta I cannot answer your question')
 
+def load_data()
