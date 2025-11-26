@@ -95,3 +95,9 @@ def game(rounds):
         print(f"Score → You: {user_score} | AI: {ai_score}\n")
 
     return f'Final Score:\nYou: {user_score}\nAI: {ai_score}'
+
+def vigenere(file):
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    for each character in file:
+        if character is in alphabet:
+            index = alphabet.index(character)
