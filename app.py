@@ -2,6 +2,7 @@ from core import Calculations
 from core import teach
 from core import get_response
 from core import game
+from core import vigenere_encrypt_file
 calc = Calculations()
 def main():
     print('Welcome to the terminal chatbot.')
@@ -14,7 +15,8 @@ def main():
             print('1. Calculate (Basic features)')
             print('2. Teach & Learn')
             print('3. Load Data')
-            print('4. Game')
+            print('4. Encrypted Data')
+            print('5. Game')
 
             try:
                 option = int(input('Choose 1-4: '))
@@ -63,6 +65,8 @@ def main():
                     print(f'Data has been saved. Expected response: {saved_data}')
                 else:
                     print('Keyword and response cannot be empty.')
+                encrypted = vigenere_encrypt_file('test.txt', 'encrypted_test.txt', 'code')
+                
 
             # ---Load Data ---
             elif option == 3:
@@ -79,8 +83,22 @@ def main():
                 except FileNotFoundError:
                     print("No saved data file found yet.")
 
-                    
+                # --- Load Encrypted Data ---
             elif option == 4:
+                try:
+                    with open('encrypted_test.txt', 'r') as e:
+                        lines = e.readlines()
+                        if not lines:
+                            print('No data')
+                        else:
+                            for i, line in enumerate(lines, start=1):
+                                print(f"{i}. {line.strip()}")
+
+                except FileNotFoundError:
+                    print('No saved encrypted data found ')
+
+                    
+            elif option == 5:
                 num_of_round = int(input("How many rounds would you like to play: "))
                 guess = input('What is your choice: ')
                 games = game(num_of_round,)

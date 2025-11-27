@@ -96,8 +96,42 @@ def game(rounds):
 
     return f'Final Score:\nYou: {user_score}\nAI: {ai_score}'
 
-def vigenere(file):
-    alphabet = 'abcdefghijklmnopqrstuvwxyz'
-    for each character in file:
-        if character is in alphabet:
-            index = alphabet.index(character)
+
+def vigenere_encrypt_file(input_file, output_file, key):
+    key = key.lower().strip()
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    encrypted_text = ""
+
+    # Read the original file
+    with open(input_file, "r") as f:
+        data = f.read()
+
+    key_index = 0
+    key_length = len(key)
+
+    for char in data:
+        if char.lower() in alphabet:
+            # Position of the text character
+            char_index = alphabet.index(char.lower())
+
+            # Position of the key character (repeated)
+            key_char = key[key_index % key_length]
+            key_shift = alphabet.index(key_char)
+
+            # Encrypt: (text + key) mod 26
+            new_index = (char_index + key_shift) % 26
+            new_char = alphabet[new_index]
+
+            # Preserve uppercase/lowercase
+            encrypted_text += new_char.upper() if char.isupper() else new_char
+
+            key_index += 1   # Advance key only for letters
+        else:
+            # Keep punctuation, numbers, spaces, etc.
+            encrypted_text += char
+
+    # Write encrypted result to a new file
+    with open(output_file, "w") as f:
+        f.write(encrypted_text)
+
+    return f"Encrypted file saved as: {output_file}"
