@@ -3,6 +3,8 @@ from core import teach
 from core import get_response
 from core import game
 from core import vigenere_encrypt_file
+from core import generate_password
+
 calc = Calculations()
 def main():
     print('Welcome to the terminal chatbot.')
@@ -70,6 +72,10 @@ def main():
 
             # ---Load Data ---
             elif option == 3:
+                print('How many letters would u like in your generated password')
+                letters = int(input('> '))
+                generated_passwd = generate_password(letters)
+                print(f'Here is your password: {generated_passwd}')
                 try:
                     with open("test.txt", "r") as fs:
                         lines = fs.readlines()

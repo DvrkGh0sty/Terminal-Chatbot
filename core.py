@@ -135,3 +135,13 @@ def vigenere_encrypt_file(input_file, output_file, key):
         f.write(encrypted_text)
 
     return f"Encrypted file saved as: {output_file}"
+
+def generate_password(length):
+    passwd = ''
+    count = 0
+    chars = 'abcdefghijklmnopqrstuvwxyz1234567890#!@$%*&^+_-'
+    for char in range(0, length):
+        char = random.choice(chars)
+        passwd += char
+        count += 1
+    return passwd
